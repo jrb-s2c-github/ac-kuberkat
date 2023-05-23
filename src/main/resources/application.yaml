@@ -1,0 +1,15 @@
+server:
+  port: 8443
+  error:
+    include-message: always
+  ssl:
+    key-store: classpath:keys/springboot.p12
+    key-store-password: Kub3rk@t
+    key-store-type: pkcs12
+    key-alias: springboot
+    #    key-password: 123456789)
+    enabled: true
+
+logging:
+  level:
+    za.co.s2c: TRACE
