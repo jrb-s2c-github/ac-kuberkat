@@ -11,5 +11,5 @@ public class EncryptionResponse extends ApiCredentialBean {
     public String cipherText;
 
     @ToString.Exclude
-    public transient String sessionId;
+    public String sessionId;
 }

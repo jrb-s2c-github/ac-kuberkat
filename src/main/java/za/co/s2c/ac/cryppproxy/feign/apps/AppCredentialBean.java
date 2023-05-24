@@ -8,5 +8,5 @@ public class AppCredentialBean {
     public String app_id;
 
     @ToString.Exclude
-    transient CredentialBean credential;
+    CredentialBean credential;
 }

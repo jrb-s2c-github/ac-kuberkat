@@ -24,10 +24,10 @@ public class DecryptionRequest  {
     private String keyName;
 
     @ToString.Exclude
-    private transient String appId;
+    private String appId;
 
     @ToString.Exclude
-    private transient String sessionId;
+    private String sessionId;
 
     public DecryptionRequestBean getDecryptionRequestBean(String cipher, String appCredential) {
         return DecryptionRequestBean.builder().alg(alg).mode(mode).cipher(cipher).appId(appId).appCredential(appCredential).build();

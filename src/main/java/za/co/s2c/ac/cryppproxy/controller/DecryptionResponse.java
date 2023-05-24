@@ -10,9 +10,9 @@ import za.co.s2c.ac.cryppproxy.feign.common.ApiCredentialBean;
 public class DecryptionResponse extends ApiCredentialBean {
 
     @ToString.Exclude
-    transient String plain;
+    String plain;
 
     @ToString.Exclude
-    transient String sessionId;
+    String sessionId;
 
 }

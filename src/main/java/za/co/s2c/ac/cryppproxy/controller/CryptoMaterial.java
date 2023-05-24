@@ -8,8 +8,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class CryptoMaterial {
     @ToString.Exclude
-    transient String keyId;
+    String keyId;
 
     @ToString.Exclude
-    transient String apiKey;
+    String apiKey;
 }

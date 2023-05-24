@@ -13,7 +13,7 @@ public class EncryptionRequestBean extends ApiCredentialBean {
     String alg;
 
     @ToString.Exclude
-    transient String plain;
+    String plain;
 
     String mode;
 

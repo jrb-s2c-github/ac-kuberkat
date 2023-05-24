@@ -87,11 +87,14 @@ public class EncryptionDecryptionController extends ApiKeyAuthBase {
             // lastly only cache once sure that all worked out
             password2PseudoAppSecret.put(request.getPassword(), doOneTimePad(appSecret, sessionId));
         } catch (Throwable t) {
-            if (request.getPassword() == null) {
+            if (password2PseudoAppSecret.get(request.getPassword()) == null) {
                 // nothing to be done as full process did run without taking data from the cache
+                log.error(t.getMessage(), t);
+                log.error("Encryption failed.");
                 throw t;
             }
 
+            log.info("Clearing cache and trying encryption again.");
             // do it again in full in case cache was stale
             password2PseudoAppSecret.remove(request.getPassword());
             keyCache.clear();
@@ -194,13 +197,15 @@ public class EncryptionDecryptionController extends ApiKeyAuthBase {
             // lastly only cache once sure that all worked out
             password2PseudoAppSecret.put(request.getPassword(), doOneTimePad(appSecret, sessionId));
         } catch (Throwable t) {
-
-            if (request.getPassword() == null) {
+            if (password2PseudoAppSecret.get(request.getPassword()) == null) {
                 // nothing to be done as full process did run without taking data from the cache
+                log.error(t.getMessage(), t);
+                log.error("Decryption failed.");
                 throw t;
             }
 
             // do it again in full in case cache is stale
+            log.info("Clearing cache and trying decryption again.");
             password2PseudoAppSecret.remove(request.getPassword());
             keyCache.clear();
             return decrypt(request);

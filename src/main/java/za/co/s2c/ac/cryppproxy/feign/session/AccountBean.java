@@ -10,5 +10,5 @@ public class AccountBean {
     String acct_id;
 
     @ToString.Exclude
-    transient String bearerToken;
+    String bearerToken;
 }

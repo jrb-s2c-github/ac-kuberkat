@@ -29,10 +29,10 @@ public class EncryptionRequest  {
     private String accountId;
 
     @ToString.Exclude
-    private transient String appId;
+    private String appId;
 
     @ToString.Exclude
-    private transient String sessionId;
+    private String sessionId;
 
     public EncryptionRequestBean getEncryptionRequestBean(String plainText, String appCredential) {
         return EncryptionRequestBean.builder().alg(alg).mode(mode).plain(plainText).appId(appId).appCredential(appCredential).build();
